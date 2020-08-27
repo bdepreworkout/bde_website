@@ -1,0 +1,160 @@
+---
+layout: default
+<!-- type: products -->
+title: Demo
+<!-- description: Start your day with our beverages. -->
+permalink: /demo/
+<!-- image: /assets/images/katya-austin-130044-unsplash.jpg -->
+published: true
+---
+
+<script>
+
+  // console.log("stuff");
+
+  ready(function search_function(){
+      
+      let input, filter, ul, li, a, i;
+      
+      input = document.getElementById("search_input");
+      filter = input.value.toUpperCase();
+      div = document.getElementById("selection_space");
+      a = div.getElementsByTagName("a");
+      
+      for (i = 0; i < a.length; i++) {
+          txtValue = a[i].textContent || a[i].innerText;
+          
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              a[i].style.display = "";
+          } 
+          else {
+              a[i].style.display = "none";
+          }
+      }
+  });
+
+  ready(function serving_container_toggle(val) {
+    document.getElementById("serving_container").innerHTML="Serving Per Container: " + toString(val);
+  });
+
+</script>
+
+
+<section id="mix-master">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4"> 
+        <div class="btn-group pull-left">
+          <button class="btn btn-outline-primary" type="button" onclick="serving_container_toggle(30)">30</button>
+  				<button class="btn btn-outline-primary" type="button">60</button>
+          <button class="btn btn-outline-primary" type="button">90</button>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="btn-group pull-right" style="width: 100%">
+          <input type="text" placeholder="Search.." style="width: 100%" id="search_input" onkeyup="search_function()">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="nutrition_label">
+          <div class="nutrition-facts__header">
+            <h1 class="nutrition-facts__title">Nutrition Facts</h1>
+            <h6 id="serving_size">Serving Size: 1 scoop (0 g)</h6>
+            <h6 id="serving_container">Serving Per Container: 30</h6>
+          </div>
+          <div class="nutrition-facts" id="nutrition_list">
+            <table class="nutrition-facts__table" id="nutrition_table">
+              <thead>
+                <tr>
+                  <th colspan="2">
+                    <h6>Amount Per Serving</h6>
+                  </th>
+                  <td><h6>% Daily Value*</h6></td>
+                </tr>
+              </thead>
+            </table>
+            <h6 id="ingredients">Ingredients: </h6>
+            <br>
+            <h6>* Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs.</h6>
+            <br>
+            <h6>† Percent Daily Value not determined.</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+   <!-- <div class="row justify-content-center product-list grid">
+    {% for item in site.data.products reversed %}
+      <div class="product element-item col-md-4">
+        <div class="card shadow border-0">
+          <img src="{{item.image}}" alt="{{item.title}}" data-toggle="modal" data-target="#id-{{item.id}}">
+          <div class="card-body" data-toggle="modal" data-target="#id-{{item.id}}">
+              <h4 class="name">{{item.title}}</h4>
+              <p>{{item.description}}</p>
+              <span class="d-none category">{{item.category}}</span>
+          </div>
+          <div class="card-footer">
+            <p><span class="price">{{site.data.main.currency}}{{item.price}}</span>
+             <button
+                class="snipcart-add-item btn btn-sm btn-primary float-right"
+                data-item-id="{{item.id}}"
+                data-item-name="{{item.title}}"
+                data-item-price="{{item.price}}"
+                data-item-weight="{{item.weight}}"
+                data-item-url="{{site.data.main.url}}{{page.url}}"
+                data-item-description="{{item.description}}"
+                data-item-max-quantity="{{item.maximum-quantity}}"
+                >Add to cart
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="modal fade" id="id-{{item.id}}" tabindex="-1" role="dialog" aria-labelledby="id-{{item.id}}" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <img src="{{item.image}}" alt="{{item.title}}">
+            <div class="modal-header">
+
+              <h5 class="modal-title" id="exampleModalLabel">{{item.title}}</h5>
+            </div>
+            <div class="modal-body">
+                <p>{{item.description}}</p>
+                <p><strong>Price: {{site.data.main.currency}}{{item.price}}</strong></p>
+                <p><strong>Weight: {{item.weight}} gms</strong></p>
+                <p><strong>Category: </strong><span class="badge badge-primary">{{item.category}}</span></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
+              <button
+                       class="snipcart-add-item btn btn-sm btn-success float-right"
+                       data-item-id="{{item.id}}"
+                       data-item-name="{{item.title}}"
+                       data-item-price="{{item.price}}"
+                       data-item-weight="{{item.weight}}"
+                       data-item-url="{{site.data.main.url}}{{page.url}}"
+                       data-item-description="{{item.description}}"
+                       data-item-max-quantity="{{item.maximum-quantity}}"
+                       >Add to mix
+               </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div> -->
+  </div>
+</section>
+
+
+
